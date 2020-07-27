@@ -42,8 +42,7 @@ const GamesDisplay = ({ games }) => {
     const { id } = item;
     return {
       'data-test-subj': `row-${id}`,
-      className: 'customRowClass',
-      onClick: () => console.log(`Clicked row ${id}`),
+      className: 'customRowClass'
     };
   };
 
@@ -53,7 +52,7 @@ const GamesDisplay = ({ games }) => {
     return {
       className: 'customCellClass',
       'data-test-subj': `cell-${id}-${field}`,
-      textOnly: true,
+      textOnly: true
     };
   };
 
