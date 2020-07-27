@@ -1,0 +1,11 @@
+.framework-links {
+  text-align: right;
+}
+
+.framework-links span {
+  margin: 5px;
+}
+
+.link-active {
+  background-color: lightblue;
+}
