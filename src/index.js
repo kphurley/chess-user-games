@@ -4,16 +4,18 @@ import ReactDOM from 'react-dom';
 import AntApp from './ant/AntApp';
 import EuiApp from './eui/EuiApp';
 
+import { getUserGames } from './api/chessDotCom'
+
 import "./app.css";
 
 const rootContainer = document.querySelector('#root');
 
-const FrameworkedApp = ({ framework }) => {
+const FrameworkedApp = ({ framework, ...rest }) => {
   switch(framework) {
     case "eUi":
-      return <EuiApp />
+      return <EuiApp {...rest} />
     case "Ant":
-      return <AntApp />
+      return <AntApp {...rest} />
     default:
       return <div>Not a supported framework :(</div>
   }
@@ -38,7 +40,11 @@ const App = () => {
           Ant
         </span>
       </div>
-      <FrameworkedApp framework={framework} />
+      <FrameworkedApp
+        framework={framework}
+        getUserGames={getUserGames}
+        title="Chess.com user report"
+      />
     </div>
   );
 }
