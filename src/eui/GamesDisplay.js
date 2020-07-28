@@ -6,27 +6,37 @@ import {
 } from '@elastic/eui';
 
 const GamesDisplay = ({ games }) => {
+  const renderUsernameWithScore = (item) => {
+    const getScore = (resultStr) => {
+      switch(resultStr) {
+        case 'win':
+          return 1;
+        case 'draw':
+          return 0.5;
+        default:
+          return 0;
+      }
+    }
+
+    return `${item.username}, ${getScore(item.result)}`;
+  }
+
   const columns = [
     {
       field: 'white',
       name: 'White',
-      render: item => item.username
+      render: renderUsernameWithScore
     },
     {
       field: 'black',
       name: 'Black',
-      render: item => item.username
+      render: renderUsernameWithScore
     },
     // TODO - Parse better
     {
       field: 'time_control',
       name: 'Time Control'
     },
-    // TODO - FIGURE THIS OUT
-    // {
-    //   field: 'result',
-    //   name: 'Result'
-    // },
     {
       field: 'url',
       name: 'Link',

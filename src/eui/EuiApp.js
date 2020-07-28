@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React from 'react';
 
 import {
   EuiPage,
@@ -13,43 +13,18 @@ import {
 import GamesDisplay from './GamesDisplay';
 import UserEntryForm from './UserEntryForm';
 
+import useAppState from '../state/useAppState';
+
 import '@elastic/eui/dist/eui_theme_light.css';
 
-function formReducer(state, action) {
-  switch (action.type) {
-    case 'user':
-      return { ...state, user: action.value };
-    case 'month':
-      return { ...state, month: action.value };
-    case 'year':
-      return { ...state, year: action.value };
-    default:
-      return state;
-  }
-}
+export default ({ title }) => {
+  const {
+    formState,
+    games,
+    onFormChange,
+    onSubmit
+  } = useAppState();
 
-export default ({ getUserGames, title }) => {
-  const [formState, dispatchFormUpdate] = useReducer(formReducer, {
-    user: "",
-    month: "",
-    year: ""
-  });
-
-  const [games, setGames] = useState([]);
-
-  const onFormChange = (type) => (e) => {
-    dispatchFormUpdate({
-      type,
-      value: e.target.value
-    });
-  };
-  
-  const onSubmit = async () => {
-    const { user, month, year } = formState;
-    const gamesData = await getUserGames(user, month, year);
-    setGames(gamesData.games || []);
-  }
-  
   return (
     <EuiPage>
       <EuiPageBody component="div">
