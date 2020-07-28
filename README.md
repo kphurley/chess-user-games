@@ -7,3 +7,5 @@ To run:
 - `npm install`
 - `npm start`
 
+Live demo here: [https://kphurley.github.io/chess-user-games/](https://kphurley.github.io/chess-user-games/)
+
