@@ -24,7 +24,7 @@ export default ({
       </EuiFormRow>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <EuiFormRow label="Month" helpText="Month">
+      <EuiFormRow label="Month">
         <EuiFieldText
           placeholder="MM"
           value={formState.month}
@@ -33,7 +33,7 @@ export default ({
       </EuiFormRow>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <EuiFormRow label="Year" helpText="Year">
+      <EuiFormRow label="Year">
         <EuiFieldText 
           placeholder="YYYY"
           value={formState.year}
