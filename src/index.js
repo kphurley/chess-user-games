@@ -40,7 +40,6 @@ const App = () => {
       </div>
       <FrameworkedApp
         framework={framework}
-        //getUserGames={getUserGames}
         title="Chess.com user report"
       />
     </div>
