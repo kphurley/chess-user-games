@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 import AntApp from './ant/AntApp';
 import EuiApp from './eui/EuiApp';
 
-import { getUserGames } from './api/chessDotCom'
-
 import "./app.css";
 
 const rootContainer = document.querySelector('#root');
@@ -42,7 +40,7 @@ const App = () => {
       </div>
       <FrameworkedApp
         framework={framework}
-        getUserGames={getUserGames}
+        //getUserGames={getUserGames}
         title="Chess.com user report"
       />
     </div>
